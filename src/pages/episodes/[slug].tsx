@@ -5,6 +5,8 @@ import { convertDurationToTimeString } from "../../utils/convertDurationToTimeSt
 import { format, parseISO } from "date-fns";
 import Image from "next/image";
 import Link from "next/link";
+import { usePlayer } from "../../contexts/PlayerContext";
+import Head from "next/head";
 
 import styles from "./episode.module.scss";
 
@@ -18,6 +20,7 @@ type Episode = {
   description: string;
   duration: number;
   durationAsString: string;
+  url: string;
 };
 
 type EpisodeProps = {
@@ -25,8 +28,18 @@ type EpisodeProps = {
 };
 
 export default function Episode({ episode }: EpisodeProps) {
+  const { play, disableShuffle } = usePlayer();
+
+  function handlePlay() {
+    play(episode);
+    disableShuffle();
+  }
+
   return (
     <div className={styles.episode}>
+      <Head>
+        <title>{episode.title} | Início</title>
+      </Head>
       <div className={styles.thumbanailContainer}>
         <Link href="/">
           <button type="button">
@@ -40,7 +53,7 @@ export default function Episode({ episode }: EpisodeProps) {
           height={160}
           objectFit="cover"
         />
-        <button>
+        <button onClick={handlePlay}>
           <img src="/play.svg" alt="Tocar" />
         </button>
       </div>
