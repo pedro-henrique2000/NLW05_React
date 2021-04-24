@@ -49,6 +49,28 @@
   justify-content: center;
 }
 
+.currentEpisode {
+  text-align: center;
+
+  img {
+    border-radius: 1.5rem;
+  }
+
+  strong {
+    display: block;
+    margin-top: 2rem;
+    font: 600 1.25rem Lexend, sans-serif;
+    line-height: 1.75rem;
+  }
+
+  span {
+    display: block;
+    margin-top: 1rem;
+    opacity: 0.6rem;
+    line-height: 1.5rem;
+  }
+}
+
 .progress {
   display: flex;
   align-items: center;
@@ -62,13 +84,14 @@
   }
 
   .slider {
-  }
+    flex: 1;
 
-  .empty-slider {
-    width: 100%;
-    height: 4px;
-    background-color: var(--purple-300);
-    border-radius: 2px;
+    .emptySlider {
+      width: 100%;
+      height: 4px;
+      background: var(--purple-300);
+      border-radius: 2px;
+    }
   }
 }
 
@@ -79,16 +102,30 @@
   margin-top: 2.5rem;
   gap: 1.5rem;
 
+  transition: filter 0.2s;
+
   button {
     background: transparent;
     border: 0;
     font-size: 0;
+
+    &.hover:not(:disabled) {
+      filter: brightness(0.8);
+    }
+
+    &.disabled {
+      cursor: not-allowed;
+    }
 
     &.playButton {
       width: 4rem;
       height: 4rem;
       border-radius: 1rem;
       background-color: var(--purple-400);
+
+      &.hover {
+        filter: brightness(0.95);
+      }
     }
   }
 }
