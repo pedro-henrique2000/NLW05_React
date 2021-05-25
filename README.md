@@ -23,7 +23,7 @@ To run the project you must have installed on your computer the following techno
   $ git clone https://github.com/phb2000/NLW05_React.git
   
   # Go to the project folder using cmd
-  $ cd podcastr-next
+  $ cd NLW05_React
   
   # Install the dependecies using the following command:
   $ yarn install
