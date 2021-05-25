@@ -8,6 +8,7 @@ go to previous/next podcast and play either on repeat or shuffle mode.
 * [SCSS](https://sass-lang.com/)
 * [TypeScript](https://www.typescriptlang.org/)
 * [Context API](https://pt-br.reactjs.org/docs/context.html)
+* [Axios](https://github.com/axios/axios)
 
 ## :computer: Layout
 <img src="./img/front.jpeg" width="900"/>
